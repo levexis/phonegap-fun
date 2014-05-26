@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.nowproject.app"
+        version   = "0.0.1">
+    <name>Now Project</name>
+
+    <description>
+        Now Project
+    </description>
+
+	<author href="http://linkedin.com/in/adtechzen" email="paul.cook@adtechzen.com">
+        Levexis
+    </author>
+<preference name="phonegap-version" value="3.1.0" />
+    <gap:platform name="ios" />
+    <gap:platform name="android" />
+    <gap:platform name="winphone" />
+    <!--
+    The examples below show how to add plugins as needed so that any Cordova APIs you use in your project still work after you upgrade to version 3.0. For each command, you need to select the target platform, and reference the platform's project directory.
+    cordova-plugin-battery-status plugman --platform --project --plugin org.apache.cordova.battery-status
+    cordova-plugin-camera plugman --platform --project --plugin org.apache.cordova.camera
+    cordova-plugin-console plugman --platform --project --plugin org.apache.cordova.console
+    cordova-plugin-contacts plugman --platform --project --plugin org.apache.cordova.contacts
+    cordova-plugin-device plugman --platform --project --plugin org.apache.cordova.device
+    cordova-plugin-device-motion (accelerometer) plugman --platform --project --plugin org.apache.cordova.device-motion
+    cordova-plugin-device-orientation (compass) plugman --platform --project --plugin org.apache.cordova.device-orientation
+    cordova-plugin-dialogs plugman --platform --project --plugin org.apache.cordova.dialogs
+    cordova-plugin-file plugman --platform --project --plugin org.apache.cordova.file
+    cordova-plugin-file-transfer plugman --platform --project --plugin org.apache.cordova.file-transfer
+    cordova-plugin-geolocation plugman --platform --project --plugin org.apache.cordova.geolocation
+    cordova-plugin-globalization plugman --platform --project --plugin org.apache.cordova.globalization
+    cordova-plugin-inappbrowser plugman --platform --project --plugin org.apache.cordova.inappbrowser
+    cordova-plugin-media plugman --platform --project --plugin org.apache.cordova.media
+    cordova-plugin-media-capture plugman --platform --project --plugin org.apache.cordova.media-capture
+    cordova-plugin-network-information plugman --platform --project --plugin org.apache.cordova.network-information
+    cordova-plugin-splashscreen plugman --platform --project --plugin org.apache.cordova.splashscreen
+    cordova-plugin-vibration plugman --platform --project --plugin org.apache.cordova.vibration
+    -->
+
+    <!-- Define app icon for each platform.
+    <icon src="images/icons/icon.png" />
+
+    <icon gap:platform="ios" height="57" src="images/icons/ios/icon-57.png" width="57" />
+    <icon gap:platform="ios" height="72" src="images/icons/ios/icon-72.png" width="72" />
+    <icon gap:platform="ios" height="114" src="images/icons/ios/icon-57-2x.png" width="114" />
+    <icon gap:platform="ios" height="144" src="images/icons/ios/icon-72-2x.png" width="144" />
+    <icon gap:platform="android" gap:density="ldpi" src="images/icons/android/icon-36-ldpi.png" />
+    <icon gap:platform="android" gap:density="mdpi" src="images/icons/android/icon-48-mdpi.png" />
+    <icon gap:platform="android" gap:density="hdpi" src="images/icons/android/icon-72-hdpi.png" />
+    <icon gap:platform="android" gap:density="xhdpi" src="images/icons/android/icon-96-xhdpi.png" />
+
+    Define app splash screen for each platform
+    <gap:splash gap:density="ldpi" gap:platform="android" src="images/splashes/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="images/splashes/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="images/splashes/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="images/splashes/android/screen-xhdpi-portrait.png" />
+    <gap:splash gap:platform="ios" height="480" src="images/splashes/ios/screen-iphone-portrait.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="images/splashes/ios/screen-iphone-portrait-2x.png" width="640" />
+    <gap:splash gap:platform="ios" height="1024" src="images/splashes/ios/screen-ipad-portrait.png" width="768" />
+    <gap:splash gap:platform="ios" height="768" src="images/splashes/ios/screen-ipad-landscape.png" width="1024" />
+-->
+<!-- subdomains = true not working on android so added * !-->	
+	<access origin="https://*.dropboxusercontent.com" subdomains="true" /> <!-- dropbox public link -->
+
+</widget>
