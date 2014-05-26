@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ajax When Test</title>
+    <link href="js/vendor/video-js.css" rel="stylesheet">
+</head>
+<body>
+<div id="main" class="push">
+    <!--    <script data-main="js/main" src ="js/vendor/require.js"></script> -->
+    <script src ="js/vendor/jquery-1.10.1.min.js"></script>
+    <script>
+        var hooks = [];
+        hooks.push( $.get('/index.html?1' , { success: function() { console.log (1); } } ) );
+        hooks.push( $.get('/index.html?2' , { success: function() { console.log (2); } } ) );
+        hooks.push( $.get('/index.html?3' , { success: function() { console.log (3); } } ) );
+        $.when.apply( $ , hooks ).then( function () {  console.log( 'done all' , new Date() ); } ,
+                function () {   console.log( 'done with errors' , new Date() ); } );
+    </script>
+</div>
+</body>
+</html>
+

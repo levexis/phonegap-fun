@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Now Project App</title>
+    <link href="js/vendor/video-js.css" rel="stylesheet">
+</head>
+<body>
+<div id="main" class="push">
+<!--    <script data-main="js/main" src ="js/vendor/require.js"></script> -->
+    <script src ="js/vendor/video.js"></script>
+    <script src='videojs.zoomrotate.js'></script>
+    <video id="welcome_video" class="video-js vjs-default-skin"
+           controls preload="auto" width="300" height="500"> <!-- data-setup='{ "plugins": { "zoomrotate": { "rotate": "90", "zoom": "1" } } }'-->
+        <source src="thomas-welcome.mp4" type="video/mp4"/>
+    </video>
+</div>
+</body>
+</html>
