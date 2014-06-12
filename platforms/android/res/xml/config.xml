@@ -16,6 +16,34 @@
         <param name="android-package" value="org.jshybugger.cordova.JsHybuggerPlugin" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="VideoPlayer">
+        <param name="android-package" value="org.apache.cordova.videoplayer.VideoPlayer" />
+    </feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.filetransfer.FileTransfer" />
+    </feature>
+    <feature name="Media">
+        <param name="android-package" value="org.apache.cordova.media.AudioHandler" />
+    </feature>
+    <feature name="FileOpener">
+        <param name="android-package" value="com.phonegap.plugins.fileopener.FileOpener" />
+    </feature>
+    <feature name="PushNotification">
+        <param name="android-package" onload="true" value="com.pushwoosh.plugin.pushnotifications.PushNotifications" />
+    </feature>
+    <feature name="LocalNotification">
+        <param name="android-package" value="de.appplant.cordova.plugin.localnotification.LocalNotification" />
+    </feature>
+    <feature name="BackgroundServicePlugin">
+        <param name="android-package" value="com.red_folder.phonegap.plugin.backgroundservice.BackgroundServicePlugin" />
+    </feature>
     <name>Daddys Spikes</name>
     <description>
         Daddy's R &amp; D
@@ -27,5 +55,9 @@
     <gap:platform name="ios" />
     <gap:platform name="android" />
     <gap:platform name="winphone" />
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidExtraFilesystems" value="sdcard,cache" />
     <access origin="https://*.dropboxusercontent.com" subdomains="true" />
+    <access origin="*.pushwoosh.com" />
+    <access origin="*.mixlr.com/" />
 </widget>

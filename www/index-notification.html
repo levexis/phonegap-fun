@@ -1,0 +1,85 @@
+<!doctype html>
+<!-- this is for push notifications, you have to pay for api access
+phonegap plugin add https://github.com/Pushwoosh/pushwoosh-phonegap-3.0-plugin.git
+there is also this - https://github.com/phonegap-build/PushPlugin
+
+
+local ones reqires device plugin
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device
+phonegap local plugin add https://github.com/katzer/cordova-plugin-local-notifications.git
+
+-->
+<html>
+<script src="cordova.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Android push</title>
+</head>
+<body>
+<div id="main" class="push">
+    <script>
+        function initPushwoosh() {
+            var pushNotification = window.plugins.pushNotification;
+
+            //set push notifications handler
+            document.addEventListener('push-notification', function(event) {
+                var title = event.notification.title;
+                var userData = event.notification.userdata;
+
+                if(typeof(userData) != "undefined") {
+                    console.warn('user data: ' + JSON.stringify(userData));
+                }
+                alert(title);
+            });
+            //initialize Pushwoosh with projectid: "GOOGLE_PROJECT_ID", appid : "PUSHWOOSH_APP_ID". This will trigger all pending push notifications on start.
+            pushNotification.onDeviceReady({ projectid: "428295620073", appid : "3AB29-F2EA0" });
+
+            //register for pushes
+            pushNotification.registerDevice(
+                    function(status) {
+                        var pushToken = status;
+                        console.warn('push token: ' + pushToken);
+                    },
+                    function(status) {
+                        console.warn(JSON.stringify(['failed to register ', status]));
+                    }
+            );
+        }
+        //Receiving push notifications. See the following snippet of code in initPushwoosh function
+        document.addEventListener('push-notification', function(event) {
+            var title = event.notification.title;
+            var userData = event.notification.userdata;
+            console.warn('user data: ' + JSON.stringify(userData), event);
+            alert(title);
+        });
+        function onDeviceReady() {
+            initPushwoosh();
+            nag ('chill out dude');
+            window.plugin.notification.local.ontrigger = function (id, state, json) {
+                console.log( 'notification', id, state, json );
+                window.plugins.fileOpener.open("file:///storage/emulated/0/daddy/fire.mp3");
+            }
+        }
+        function nag(msg) {
+
+            var now = new Date().getTime(),
+                    _60_seconds_from_now = new Date( now + 60 * 1000 );
+
+            window.plugin.notification.local.add( {
+                id : 1,
+                title : 'Nag',
+                message : msg,
+                sound:  'file:///storage/emulated/0/daddy/bell.wav',
+//                repeat : 1, // or minutely
+                autoCancel: true, // Setting this flag and the notification is automatically canceled when the user clicks it
+                date : _60_seconds_from_now
+            } );
+        }
+
+
+        document.addEventListener('deviceready', onDeviceReady);
+    </script>
+</div>
+hello world
+</body>
+</html>

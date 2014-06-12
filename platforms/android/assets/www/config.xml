@@ -19,7 +19,11 @@
     <gap:platform name="android" />
     <gap:platform name="winphone" />
 
+    <preference name="AndroidPersistentFileLocation" value="Compatibility" />
+    <preference name="AndroidExtraFilesystems" value="sdcard,cache" />
+
     <!-- subdomains = true not working on android so added * !-->
 	<access origin="https://*.dropboxusercontent.com" subdomains="true" /> <!-- dropbox public link -->
-
+    <access origin="*.pushwoosh.com" />
+    <access origin="*.mixlr.com/" />
 </widget>

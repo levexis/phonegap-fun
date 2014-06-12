@@ -1,0 +1,21 @@
+{
+  "name": "phonegapFun",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular": "",
+    "modernizr": "",
+    "json3": "",
+    "jquery": "~1.9",
+    "foundation": "",
+    "es5-shim": "",
+    "angular-resource": "",
+    "angular-cookies": "",
+    "angular-sanitize": "",
+    "angular-cordova-wrapper": "git@github.com:connectid/angular-cordova-wrapper.git",
+    "kendo-ui": "~2014.1.416"
+  },
+  "devDependencies": {
+    "angular-mocks": "",
+    "angular-scenario": ""
+  }
+}

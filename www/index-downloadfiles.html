@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- this is for downloading files
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-file
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-file-transfer
+-->
+<html>
+<script src="cordova.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Android Video Load</title>
+</head>
+<body>
+<div id="main" class="push">
+    <script>
+    /*
+     var file_path;
+     function setFilePath() {
+     if(detectAndroid()) {
+     file_path = "file:///android_asset/www/res/db/";
+     //4 Android
+     } else {
+     file_path = "res//db//";
+     //4 apache//iOS/desktop
+     }
+     }
+    */
+    /* this is supposed work cross platform  but doesn't work at all for me on android, have added a console log
+    function downloadFile( url ){
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
+                function onFileSystemSuccess(fileSystem) {
+                    fileSystem.root.getFile(
+                            "dummy.html", {create: true, exclusive: false},
+                            function gotFileEntry(fileEntry) {
+                                console.log(fileEntry);
+                                var sPath = fileEntry.fullPath.replace("dummy.html","");
+                                var fileTransfer = new FileTransfer();
+                                fileEntry.remove();
+
+                                fileTransfer.download(
+                                        url,
+                                                sPath + "theFile.pdf",
+                                        function(theFile) {
+                                            console.log("download complete: " + theFile.toURI());
+                                            showLink(theFile.toURI());
+                                        },
+                                        function(error) {
+                                            console.log("download error source " + error.source);
+                                            console.log("download error target " + error.target);
+                                            console.log("upload error code: " + error.code);
+                                            console.log("error", error);
+                                        }
+                                );
+                            },function(error) {
+                                console.log( 'failed to get file ', error );
+                            });
+                }, function(error) {
+                    console.log( 'failed to get filesystem ', error );
+                });
+    }
+     */
+    function getFile ( url , target , callBack ) {
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+            var fileTransfer = new FileTransfer();
+            var uri = encodeURI( url );
+            target = (target + '') || 'myfile';
+            target = fs.root.nativeURL + target;
+            console.log ( 'transferring', url,target);
+            fileTransfer.download(
+                    uri,
+                    target,
+                    function ( entry ) {
+                        console.log( "transfer complete: " + target, entry );
+                        if ( typeof callBack === 'function' ) return callBack( entry );
+                    },
+                    function ( error ) {
+                        console.log( "transfer failed: ", error );
+                    }
+            );
+        });
+    }
+//    file:///storage/emulated/0/daddy/bell.wav
+    function onDeviceReady() {
+        console.log('ready');
+        getFile('https://dl.dropboxusercontent.com/u/1120453/elbow.jpg','daddy/elbow.jpg', function () {
+            getFile('https://dl.dropboxusercontent.com/u/1120453/fire.mp3','daddy/fire.mp3', function () {
+                getFile( 'https://dl.dropboxusercontent.com/u/1120453/thomas.mp4', 'daddy/thomas.mp4', function () {
+                    getFile( 'https://dl.dropboxusercontent.com/u/1120453/Apsalar.pdf', 'daddy/Apsalar.pdf', function () {
+                        getFile( 'https://dl.dropboxusercontent.com/u/1120453/bell.wav', 'daddy/bell.wav', function () {
+                            console.log( 'done' );
+                        });
+                    });
+                });
+            });
+        });
+    }
+    document.addEventListener('deviceready', onDeviceReady);
+    </script>
+</div>
+</body>
+</html>

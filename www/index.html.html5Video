@@ -1,0 +1,25 @@
+<!doctype html>
+<!-- this is for android video !-->
+<html>
+<script src="cordova.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Android Video Load</title>
+</head>
+<body>
+<div id="main" class="push">
+    <script>function onDeviceReady() {
+        // $PROJECT_ROOT/platforms/android/res/raw
+        window.plugins.html5Video.initialize({ "thomas" : "thomas_welcome.mp4",
+         "nothing": "nothing.mp4"});
+
+        //Playing a video
+
+        //Anytime you wish to play a video, call:
+//        window.plugins.html5Video.play("thomas");
+    }
+    document.addEventListener('deviceready', onDeviceReady);
+    </script>
+</div>
+</body>
+</html>

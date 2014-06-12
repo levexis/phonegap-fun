@@ -1,0 +1,20 @@
+<!doctype html>
+<!-- this is for android video
+phonegap local plugin add https://github.com/tdurand/videoplayer-phonegap3
+-->
+<html>
+<script src="cordova.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Android Video Load</title>
+</head>
+<body>
+<div id="main" class="push">
+    <script>function onDeviceReady() {
+        window.videoPlayer.play("file:///storage/emulated/0/daddy/thomas.mp4")
+    }
+    document.addEventListener('deviceready', onDeviceReady);
+    </script>
+</div>
+</body>
+</html>

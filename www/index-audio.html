@@ -1,0 +1,39 @@
+<!doctype html>
+<!-- this is for playing audio
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-media
+-->
+<html>
+<script src="cordova.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Android pdf open</title>
+</head>
+<body>
+<div id="main" class="push">
+
+    <script>
+    function playAudio(url,callback) {
+        // Play the audio file at url
+        var my_media = new Media(url,
+                // success callback
+                function() {
+                    console.log("playAudio():Audio Success");
+                    if ( callback && typeof callback === 'function') callback();
+                },
+                // error callback
+                function(err) {
+                    console.log("playAudio():Audio Error: "+err);
+                });
+
+        // Play audio
+        my_media.play();
+    }
+    function onDeviceReady() {
+        playAudio('file:///storage/emulated/0/daddy/bell.wav', function() { playAudio('file:///storage/emulated/0/daddy/fire.mp3') });
+    }
+    document.addEventListener('deviceready', onDeviceReady);
+    </script>
+</div>
+hello world
+</body>
+</html>

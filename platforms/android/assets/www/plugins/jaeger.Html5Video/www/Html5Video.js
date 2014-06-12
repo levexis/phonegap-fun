@@ -23,7 +23,9 @@ Html5Video.prototype.initialize = function(videos) {
 		}, function(err) {
 			console.error('html video error: ' + err);
 		}, 'Html5Video', 'initialize', [ videos ]);
-	}
+	} else {
+        console.error('wrong platform ' + device.platform);
+    }
 };
 
 /*
@@ -35,11 +37,13 @@ Html5Video.prototype.play = function(videoId, callback) {
 	me._callbacks[videoId] = callback;
 
 	if (device.platform == 'Android' || device.platform == 'amazon-fireos') {
-		return cordova.exec(function(result) {			
+        console.log('playing ' + videoId);
+        return cordova.exec(function(result) {
 		}, function(err) {
 			console.error('html video error: ' + err);
 		}, 'Html5Video', 'play', [ videoId ]);
 	} else {
+        console.error('not android ' + device.platform);
 		this._play(document.getElementById(videoId));
 	}
 }
@@ -49,6 +53,9 @@ Html5Video.prototype._play = function(video) {
 		videoId = video.id;
 
 	video.src = me._videos[videoId];
+
+    console.log ('me,video',me,video);
+
 	//video.setAttribute('poster', video.getAttribute('poster'));		
 
 	video.addEventListener("timeupdate", function() {

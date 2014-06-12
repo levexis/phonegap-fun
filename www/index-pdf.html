@@ -1,0 +1,24 @@
+<!doctype html>
+<!-- this is for opening a pdf
+phonegap plugin add https://github.com/don/FileOpener.git
+-->
+<html>
+<script src="cordova.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Android pdf open</title>
+</head>
+<body>
+<div id="main" class="push">
+    <script>function onDeviceReady() {
+//        window.open('file:///storage/emulated/0/daddy/Apsalar.pdf', '_blank');
+        //navigator.load.url('https://dl.dropboxusercontent.com/u/1120453/Apsalar.pdf', '_blank');
+        window.plugins.fileOpener.open("file:///storage/emulated/0/daddy/Apsalar.pdf");
+// also works for video for my phone        window.plugins.fileOpener.open("file:///storage/emulated/0/daddy/thomas.mp4")
+    }
+    document.addEventListener('deviceready', onDeviceReady);
+    </script>
+</div>
+hello world
+</body>
+</html>

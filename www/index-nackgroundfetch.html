@@ -1,0 +1,56 @@
+<!doctype html>
+<!-- this is for background fetch to do file download
+
+phonegap plugin add https://github.com/christocracy/cordova-plugin-background-fetch.git
+
+-->
+<!doctype html>
+<!-- this is for playing audio
+phonegap local plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-media
+-->
+<html>
+<script src="cordova.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Android pdf open</title>
+</head>
+<body>
+<div id="main" class="push">
+
+    <script>
+        function getFile ( url , target , callBack ) {
+            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function (fs) {
+                var fileTransfer = new FileTransfer();
+                var uri = encodeURI( url );
+                target = (target + '') || 'myfile';
+                target = fs.root.nativeURL + target;
+                console.log ( 'transferring', url,target);
+                fileTransfer.download(
+                        uri,
+                        target,
+                        function ( entry ) {
+                            console.log( "transfer complete: " + target, entry );
+                            if ( typeof callBack === 'function' ) return callBack( entry );
+                        },
+                        function ( error ) {
+                            console.log( "transfer failed: ", error );
+                        }
+                );
+            });
+        }
+        function onDeviceReady() {
+            console.log('Ready');
+            var Fetcher = window.plugins.backgroundFetch;
+            // Your background-fetch handler.
+            var fetchCallback = function() {
+                console.log('BackgroundFetch initiated');
+                getFile('https://dl.dropboxusercontent.com/u/1120453/elbow.jpg','daddy/elbow.jpg', Fetcher.finish , Fetcher.finish);
+            }
+            Fetcher.configure(fetchCallback);
+        }
+        document.addEventListener('deviceready', onDeviceReady);
+    </script>
+</div>
+hello world
+</body>
+</html>
