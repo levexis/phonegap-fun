@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-controller="OrgsCtrl">
 	<div class="large-12 column">
 		<div class="hero-unit">
 			<h1>'Allo, 'Allo!</h1>
@@ -7,7 +7,7 @@
 				<li ng-repeat="thing in awesomeThings">{{thing}}</li>
 			</ul>
 			<p>installed.</p>
-			<h3>Enjoy coding! - Yeoman</h3>
+			<h3 ng-click="doRoute('organizations');">View Organizations</h3>
 		</div>
 	</div>
 </div>

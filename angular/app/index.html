@@ -11,12 +11,13 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <script src="bower_components/modernizr/modernizr.js"></script>
-
-
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/_normalize.css">
-    <link rel="stylesheet" href="styles/_settings.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- removed foundation -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.silver.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.silver.mobile.min.css" rel="stylesheet" type="text/css" />
+    <link href="//cdn.kendostatic.com/2014.1.528/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
     <!-- endbuild -->
 </head>
 <body ng-app="phonegapFunApp">
@@ -32,17 +33,13 @@
 <!-- Add your site or application content here -->
 <div class="container" ng-view=""></div>
 
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-        g.src='//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
-
 <script src="bower_components/jquery/jquery.js"></script>
 <script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
 <script src="bower_components/angular-cordova-wrapper/release/angular-cordova-wrapper.min.js"></script>
+<!--<script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>  !-->
+<script src="bower_components/kendo-ui/js/kendo.ui.core.min.js"></script>
+<script src="bower_components/angular-kendo/angular-kendo.js"></script>
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
@@ -50,21 +47,6 @@
 <!-- endbuild -->
 
 <!-- build:js scripts/plugins.js -->
-<script src="bower_components/foundation/js/foundation/foundation.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.section.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.alerts.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.magellan.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.clearing.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.cookie.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.joyride.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.interchange.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.forms.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.placeholder.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.orbit.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.reveal.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.tooltips.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.dropdown.js"></script>
-<script src="bower_components/foundation/js/foundation/foundation.topbar.js"></script>
 <!-- endbuild -->
 
 <!-- build:js scripts/modules.js -->
