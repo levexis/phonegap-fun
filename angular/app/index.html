@@ -13,11 +13,9 @@
     <script src="bower_components/modernizr/modernizr.js"></script>
     <!-- build:css({.tmp,app}) styles/main.css -->
     <!-- removed foundation -->
+    <link rel="stylesheet" type="text/css" href="bower_components/onsenui/build/css/topcoat-mobile-onsen-ios7.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/onsenui/build/css/onsenui.css">
     <link href="styles/style.css" rel="stylesheet" type="text/css" />
-    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.common.min.css" rel="stylesheet" type="text/css" />
-    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.silver.min.css" rel="stylesheet" type="text/css" />
-    <link href="//cdn.kendostatic.com/2014.1.318/styles/kendo.silver.mobile.min.css" rel="stylesheet" type="text/css" />
-    <link href="//cdn.kendostatic.com/2014.1.528/styles/kendo.mobile.all.min.css" rel="stylesheet" type="text/css" />
     <!-- endbuild -->
 </head>
 <body ng-app="phonegapFunApp">
@@ -30,16 +28,19 @@
 <script src="bower_components/json3/lib/json3.min.js"></script>
 <![endif]-->
 
-<!-- Add your site or application content here -->
-<div class="container" ng-view=""></div>
 
-<script src="bower_components/jquery/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/jquery/jquery.min.js"></script>
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-touch/angular-touch.min.js"></script>
 <script src="bower_components/angular-cordova-wrapper/release/angular-cordova-wrapper.min.js"></script>
-<!--<script src="http://cdn.kendostatic.com/2014.1.318/js/kendo.all.min.js"></script>  !-->
-<script src="bower_components/kendo-ui/js/kendo.ui.core.min.js"></script>
-<script src="bower_components/angular-kendo/angular-kendo.js"></script>
+<script src="bower_components/onsenui/build/js/onsenui.js"></script>
+
+
+<!-- Add your site or application content here -->
+<div class="container" ui-view class="slide ui-view-container"></div>
+
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
