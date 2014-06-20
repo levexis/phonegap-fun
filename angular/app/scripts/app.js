@@ -1,6 +1,6 @@
 'use strict';
 // Make sure to include the `ui.router` module as a dependency
-var myApp = angular.module('phonegapFunApp', ['ui.router', 'angularCordovaWrapper', 'onsen.directives' , 'ngAnimate','ngResource' ])
+var myApp = angular.module('phonegapFunApp', ['ui.router', 'angularCordovaWrapper', 'onsen.directives' , 'ngAnimate','ngCachedResource' ])
     .run(
     [        '$rootScope', '$state', '$stateParams',
         function ($rootScope,   $state,   $stateParams) {

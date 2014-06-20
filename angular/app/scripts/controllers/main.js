@@ -31,11 +31,11 @@ myApp.service('todos', function(){
 
 myApp.service('todo', ['todos', function(todos) {
     //return $cachedResource('api/todos', {})
-    this.collection = todos.collection
+    this.collection = todos.collection;
 }]);
 
-myApp.factory('todoFactory', ['$resource' , function($resource) {
-    return $resource('api/todos/:todoId', { id:'@id' });
+myApp.factory('todoFactory', ['$cachedResource' , function($cachedResource) {
+   return new $cachedResource('todos','api/todos/:todoId', { id:'@id' });
 }]);
 
 
