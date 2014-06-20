@@ -1,7 +1,8 @@
 'use strict';
 
-angular.module('phonegapFunApp')
-  .controller('MainCtrl', [ '$scope', '$location', function ($scope , $location) {
+var myApp = angular.module('phonegapFunApp');
+
+myApp.controller('MainCtrl', [ '$scope', '$location', function ($scope , $location) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -10,8 +11,35 @@ angular.module('phonegapFunApp')
     console.log ( 'Main initialised',$scope,$location);
   } ]);
 
-angular.module('phonegapFunApp')
-    .controller('OrgsCtrl', [ '$scope', function ($scope) {
+myApp.service('todos', function(){
+    //return $cachedResource('api/todos', {})
+    this.collection = [
+        { id:1 , name: "Determine project scope", description: 'descript', text:'text' },
+        {id:2 , name: "Define preliminary resources"},
+        {    id:3 , name: "Conduct needs analysis"},
+        {   id:4 , name:  "Draft preliminary specifications"},
+        {   id:5 , name: "Develop delivery timeline"},
+        {   id:6 , name:  "Obtain approvals to proceed"},
+        {   id:7 , name: "Secure reuired resources"},
+        {   id:8 , name: "Develop functional specifications"},
+        {   id:9 , name: "Develop prototype"},
+        {   id:10 , name: "Review functional specifications"},
+        {   id:11 , name: "Identify design parameters"},
+        {   id:12 , name: "Assign development staff"}
+    ];
+});
+
+myApp.service('todo', ['todos', function(todos) {
+    //return $cachedResource('api/todos', {})
+    this.collection = todos.collection
+}]);
+
+myApp.factory('todoFactory', ['$resource' , function($resource) {
+    return $resource('api/todos/:todoId', { id:'@id' });
+}]);
+
+
+myApp.controller('OrgsCtrl', [ '$scope', 'todo','todoFactory',function ($scope ,todos , todoFactory) {
     $scope.list = [
         "Determine project scope",
         "Define preliminary resources",
@@ -26,26 +54,17 @@ angular.module('phonegapFunApp')
         "Identify design parameters",
         "Assign development staff"
     ];
-    $scope.collection = [
-        { id:1 , name: "Determine project scope", description: 'descript', text:'text' },
-        {id:2 , name: "Define preliminary resources"},
-        {    id:3 , name: "Conduct needs analysis"},
-        {   id:4 , name:  "Draft preliminary specifications"},
-        {   id:5 , name: "Develop delivery timeline"},
-        {   id:6 , name:  "Obtain approvals to proceed"},
-        {   id:7 , name: "Secure reuired resources"},
-        {   id:8 , name: "Develop functional specifications"},
-        {   id:9 , name: "Develop prototype"},
-        {           id:10 , name: "Review functional specifications"},
-        {   id:11 , name: "Identify design parameters"},
-        {   id:12 , name: "Assign development staff"}
-    ];
+    $scope.collection = todos.collection;
+    var todo = todoFactory.query( function (todos) {
+        console.log('todos',todos);
+        $scope.collection = todos;
+    });
 
     console.log ( 'Orgs initialised',$scope);
 }]);
 
-angular.module('phonegapFunApp')
-    .controller( 'ListCtrl', [ '$scope', function (scope ) {
+
+myApp.controller( 'ListCtrl', [ '$scope', function (scope ) {
         scope.clicker = function ( what ) {
             console.log(what, scope);
             scope.$state.go('home');
